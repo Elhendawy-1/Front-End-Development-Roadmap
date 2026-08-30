@@ -1,2 +1,79 @@
-# Front-End-Development-Roadmap
-A structured Front-End Development roadmap covering HTML, CSS, JavaScript, Git &amp; GitHub, TypeScript, React, modern front-end skills, testing, and advanced topics — with recommended courses, projects, resources, and a practical learning path from zero to job-ready
+# Front-End Development Roadmap
+
+> خارطة طريق متكاملة ومنظمة لتعلم **Front-End Development** من الصفر حتى مستوى **Job-Ready**.
+
+---
+
+## Roadmap
+
+مسار تعليمي متدرج يبدأ من أساسيات الويب وينتقل خطوة بخطوة إلى تقنيات تطوير الواجهات الحديثة.
+
+### 0. Web Fundamentals
+فهم أساسيات عمل الويب والبيئة التي يعمل فيها الـ Front-End.
+
+### 1. HTML & CSS
+بناء وتصميم واجهات ويب منظمة، متجاوبة، وقابلة للوصول.
+
+### 2. JavaScript
+تعلم البرمجة والتفاعل مع صفحات الويب وبناء تطبيقات ديناميكية.
+
+### 3. Git & GitHub
+إدارة المشاريع، تتبع التغييرات، والعمل مع GitHub.
+
+### 4. TypeScript
+كتابة JavaScript بشكل أكثر أمانًا وتنظيمًا باستخدام نظام الأنواع.
+
+### 5. React
+بناء واجهات حديثة وقابلة لإعادة الاستخدام باستخدام React.
+
+### 6. Modern Front-End Skills
+تعلم الأدوات والممارسات الحديثة المستخدمة في تطوير تطبيقات الـ Front-End.
+
+### 7. Testing
+فهم أساسيات اختبار التطبيقات وتحسين جودتها وموثوقيتها.
+
+### 8. Advanced Topics
+التوسع في المفاهيم والتقنيات المتقدمة بعد بناء أساس قوي.
+
+---
+
+## What's Included?
+
+- 📚 **Recommended Courses** — كورسات تعليمية مقترحة لكل مرحلة.
+- 🛠️ **Practical Projects** — مشاريع عملية لتطبيق المفاهيم التي تم تعلمها.
+- 📖 **Learning Resources** — مصادر إضافية للتعلم والتعمق.
+- 📋 **Official Documentation** — روابط التوثيق الرسمي للتقنيات.
+- 🗺️ **Structured Learning Path** — ترتيب واضح للمواضيع والمراحل.
+- ⏱️ **Estimated Timeline** — مدة تقديرية لكل مرحلة.
+
+---
+
+## Estimated Timeline
+
+**6–9 Months**
+
+> المدة مبنية على **2–4 ساعات من الدراسة المركزة يوميًا**.
+
+المدة تقديرية وقد تختلف حسب سرعة التعلم، مستوى الممارسة، والوقت المخصص للمشاريع.
+
+---
+
+## How to Use
+
+1. افتح ملف `Front_End_Roadmap.html` في المتصفح.
+2. ابدأ من **Web Fundamentals**.
+3. اتبع المراحل بالترتيب.
+4. شاهد الكورسات والمصادر المقترحة.
+5. طبّق ما تتعلمه من خلال المشاريع العملية.
+6. استخدم الـ **Official Documentation** للتعمق وفهم المفاهيم.
+7. انتقل للمرحلة التالية بعد إتقان أساسيات المرحلة الحالية.
+
+---
+
+## Learning Philosophy
+
+> **Learn → Practice → Build Projects → Improve**
+
+الهدف من الـ Roadmap ليس إنهاء أكبر عدد من الكورسات، وإنما **فهم المفاهيم وتطبيقها وبناء مشاريع حقيقية**.
+
+
