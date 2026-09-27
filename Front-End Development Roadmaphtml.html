@@ -5,6 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Front-End Roadmap — Zero to Job-Ready</title>
 <style>
+  /* ====== LOGIN SCREEN ====== */
+  #login-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+  #login-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .login-box {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    animation: loginFadeIn 0.6s ease;
+  }
+  .login-box .lock-icon { font-size: 60px; margin-bottom: 20px; }
+  .login-box h1 { color: white; font-size: 26px; margin-bottom: 8px; }
+  .login-box p { color: #a0a0c0; font-size: 14px; margin-bottom: 30px; }
+  .login-box input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-bottom: 16px;
+  }
+  .login-box input::placeholder { color: #666; }
+  .login-box input:focus { border-color: var(--primary); }
+  .login-box button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+  }
+  .login-error {
+    color: var(--accent-red);
+    font-size: 14px;
+    margin-top: 12px;
+    display: none;
+    animation: shake 0.4s ease;
+  }
+  @keyframes loginFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
   :root {
     --primary: #6c5ce7;
     --primary-dark: #5a4bd1;
@@ -19,6 +90,14 @@
     --accent-blue: #0984e3;
     --accent-pink: #e84393;
     --sidebar-w: 280px;
+  }
+
+  .dark-mode {
+    --bg: #1a1a2e;
+    --card-bg: #16213e;
+    --text: #e0e0e0;
+    --text-light: #a0a0a0;
+    --border: #2d2d44;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,10 +130,20 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 20px;
   }
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .sidebar-logo svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
   .sidebar-header h2 {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 4px;
   }
   .sidebar-header p {
     font-size: 12px;
@@ -112,6 +201,10 @@
     color: #1a1a2e;
     margin-bottom: 12px;
     letter-spacing: -1px;
+  }
+
+  .dark-mode .hero h1 {
+    color: #ffffff;
   }
   .hero .subtitle {
     font-size: 18px;
@@ -180,6 +273,10 @@
     border-radius: 12px;
     border-left: 4px solid var(--primary);
   }
+
+  .dark-mode .part {
+    background: #1e2a4a;
+  }
   .part h3 {
     font-size: 17px;
     font-weight: 700;
@@ -208,6 +305,11 @@
     padding: 20px 24px;
     margin: 16px 0;
   }
+
+  .dark-mode .course {
+    background: linear-gradient(135deg, #1e2a4a, #1a2540);
+    border: 1px solid #2d3a5a;
+  }
   .course h4 {
     font-size: 16px;
     font-weight: 700;
@@ -217,6 +319,27 @@
     color: var(--primary);
     font-size: 13px;
     word-break: break-all;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #6c5ce7, #5a4bd1);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin: 4px 0;
+  }
+
+  .course a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.4);
+  }
+
+  .course a::before {
+    content: '▶';
+    font-size: 10px;
   }
   .course .meta {
     font-size: 12px;
@@ -254,13 +377,22 @@
   tr:hover td {
     background: #f0f0ff;
   }
+
+  .dark-mode tr:hover td {
+    background: #1e2a4a;
+  }
   td a {
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
+    padding: 4px 10px;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: 6px;
+    transition: all 0.2s;
   }
   td a:hover {
-    text-decoration: underline;
+    background: rgba(108, 92, 231, 0.2);
+    text-decoration: none;
   }
 
   /* STUDY METHOD */
@@ -275,6 +407,11 @@
     gap: 8px;
     flex-wrap: wrap;
     font-size: 14px;
+  }
+
+  .dark-mode .study-method {
+    background: linear-gradient(135deg, #00b89420, #00b89410);
+    border: 1px solid #00b89440;
   }
   .step {
     display: inline-flex;
@@ -333,6 +470,15 @@
   .dont-box h4 { color: var(--accent-red); margin-bottom: 8px; }
   .do-box li, .dont-box li { margin: 4px 0; }
 
+  .dark-mode .do-box {
+    background: #00b89415;
+    border: 1px solid #00b89450;
+  }
+  .dark-mode .dont-box {
+    background: #e1705515;
+    border: 1px solid #e1705550;
+  }
+
   /* FOOTER */
   .footer {
     text-align: center;
@@ -360,10 +506,41 @@
 </head>
 <body>
 
+<!-- ====== LOGIN SCREEN ====== -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="lock-icon">&#128274;</div>
+    <h1>Front-End Roadmap</h1>
+    <p>Enter the password to access the roadmap</p>
+    <input type="password" id="password-input" placeholder="Enter password..." autofocus>
+    <button onclick="checkPassword()">Unlock</button>
+    <div class="login-error" id="login-error">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- ====== MAIN CONTENT (hidden until login) ====== -->
+<div id="main-content" style="display:none;">
+
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-header">
-    <h2>Front-End Roadmap</h2>
+    <div class="sidebar-logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="url(#grad1)"/>
+        <path d="M12 12h16v3H12zM12 18h12v3H12zM12 24h14v3H12z" fill="white" opacity="0.9"/>
+        <circle cx="30" cy="28" r="5" fill="#fdcb6e"/>
+        <path d="M28.5 27.5l3 3M30 26v4" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="100%" stop-color="#e84393"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div>
+        <h2>Front-End Roadmap</h2>
+      </div>
+    </div>
     <p>From Zero to Job-Ready</p>
   </div>
   <nav>
@@ -380,10 +557,29 @@
   </nav>
 </aside>
 
+<button id="darkModeToggle" onclick="toggleDarkMode()" style="position:fixed;top:20px;right:20px;z-index:1000;padding:12px 20px;background:rgba(255,255,255,0.9);color:#2d3436;border:1px solid #e9ecef;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:all 0.3s;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+  <span id="darkModeIcon">&#9790;</span> Dark Mode
+</button>
+
 <!-- MAIN -->
 <div class="main">
 
   <div class="hero">
+    <div style="margin-bottom:20px;">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:80px;height:80px;">
+        <rect width="80" height="80" rx="20" fill="url(#heroGrad)"/>
+        <path d="M22 22h36v5H22zM22 32h28v5H22zM22 42h32v5H22z" fill="white" opacity="0.9"/>
+        <circle cx="58" cy="54" r="10" fill="#fdcb6e"/>
+        <path d="M55 53l6 6M58 51v8" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="heroGrad" x1="0" y1="0" x2="80" y2="80">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="50%" stop-color="#e84393"/>
+            <stop offset="100%" stop-color="#0984e3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
     <h1>Front-End Development Roadmap</h1>
     <p class="subtitle">Complete learning path from absolute beginner to job-ready developer</p>
     <div class="tags">
@@ -415,8 +611,8 @@
       <li><strong>VS Code + Terminal basics</strong> — Your development environment.</li>
     </ul>
     <div class="course">
-      <h4>Elzero Web School — HTML Course (2021)</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank">youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji</a>
+      <h4>Essential Programming Fundamentals — Level One</h4>
+      <a href="https://www.youtube.com/playlist?list=PL3X--QIIK-OHgMV2yBz3GLfM5d_5BxOSj" target="_blank">Watch on YouTube</a>
       <div class="meta">37 videos · ~4h 12m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
     <div class="study-method">
@@ -494,8 +690,8 @@
 
     <div class="course">
       <h4>Elzero Web School — HTML + CSS</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank">HTML: youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji</a><br>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank">CSS: youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank">HTML Playlist</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank">CSS Playlist</a>
       <div class="meta">Total: ~15h 40m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
 
@@ -596,12 +792,12 @@
 
     <div class="course">
       <h4>Elzero Web School — JavaScript</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank">youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank">Watch on YouTube</a>
       <div class="meta">188 videos · ~19h 23m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
     <div class="course">
       <h4>Elzero Web School — ES6+ (Supplement)</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank">youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank">Watch on YouTube</a>
       <div class="meta">52 videos · ~6h 44m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
 
@@ -639,7 +835,7 @@
     </ul>
     <div class="course">
       <h4>Git &amp; GitHub Course — Arabic</h4>
-      <a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank">youtube.com/watch?v=Q6G-J54vgKc</a>
+      <a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank">Watch on YouTube</a>
       <div class="meta">Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
   </section>
@@ -662,7 +858,7 @@
     </ul>
     <div class="course">
       <h4>Elzero Web School — TypeScript</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank">youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank">Watch on YouTube</a>
       <div class="meta">38 videos · ~3h 21m · Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
   </section>
@@ -686,12 +882,12 @@
     </ul>
     <div class="course">
       <h4>ITI — React Course (Arabic)</h4>
-      <a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank">youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb</a>
+      <a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank">Watch on YouTube</a>
       <div class="meta">Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
     <div class="course">
       <h4>SuperSimpleDev — React 19 Full Course (English)</h4>
-      <a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank">youtube.com/watch?v=TtPXvEcE11E&t=1s</a>
+      <a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank">Watch on YouTube</a>
       <div class="meta">~11h 32m · React 19 · English &nbsp; <span class="rating">5/5</span></div>
     </div>
   </section>
@@ -841,6 +1037,75 @@
     Front-End Development Roadmap — From Zero to Job-Ready &bull; Last Updated: August 2026
   </div>
 </div>
+
+</div> <!-- end main-content -->
+
+<script>
+  // ============================================
+  // PASSWORD — Change this string to update it
+  // ============================================
+  const PASSWORD = "Frontend@2026";
+
+  function checkPassword() {
+    const input = document.getElementById('password-input').value;
+    const error = document.getElementById('login-error');
+
+    if (input === PASSWORD) {
+      document.getElementById('login-screen').classList.add('hidden');
+      document.getElementById('main-content').style.display = 'block';
+    } else {
+      error.style.display = 'block';
+      document.getElementById('password-input').value = '';
+      document.getElementById('password-input').focus();
+    }
+  }
+
+  document.getElementById('password-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    updateDarkModeButton(isDark);
+  }
+
+  function updateDarkModeButton(isDark) {
+    const btn = document.getElementById('darkModeToggle');
+    if (isDark) {
+      btn.innerHTML = '<span id="darkModeIcon">&#9788;</span> Light Mode';
+      btn.style.background = 'rgba(30,30,50,0.9)';
+      btn.style.color = '#e0e0e0';
+      btn.style.borderColor = '#2d2d44';
+    } else {
+      btn.innerHTML = '<span id="darkModeIcon">&#9790;</span> Dark Mode';
+      btn.style.background = 'rgba(255,255,255,0.9)';
+      btn.style.color = '#2d3436';
+      btn.style.borderColor = '#e9ecef';
+    }
+  }
+
+  // Check saved preference
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    updateDarkModeButton(true);
+  } else {
+    updateDarkModeButton(false);
+  }
+
+  // Add hover effect
+  const darkModeBtn = document.getElementById('darkModeToggle');
+  darkModeBtn.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-2px)';
+    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+  });
+  darkModeBtn.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+    this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+  });
+</script>
 
 </body>
 </html>
