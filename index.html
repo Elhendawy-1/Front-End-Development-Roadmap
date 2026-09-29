@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'self'; form-action 'self'">
 <title>Front-End Roadmap — Zero to Job-Ready</title>
 <style>
   /* ====== LOGIN SCREEN ====== */
@@ -512,8 +515,8 @@
     <div class="lock-icon">&#128274;</div>
     <h1>Front-End Roadmap</h1>
     <p>Enter the password to access the roadmap</p>
-    <input type="password" id="password-input" placeholder="Enter password..." autofocus>
-    <button onclick="checkPassword()">Unlock</button>
+    <input type="password" id="password-input" placeholder="Enter password..." autofocus autocomplete="off">
+    <button id="unlockBtn" type="button">Unlock</button>
     <div class="login-error" id="login-error">Incorrect password. Try again.</div>
   </div>
 </div>
@@ -557,8 +560,8 @@
   </nav>
 </aside>
 
-<button id="darkModeToggle" onclick="toggleDarkMode()" style="position:fixed;top:20px;right:20px;z-index:1000;padding:12px 20px;background:rgba(255,255,255,0.9);color:#2d3436;border:1px solid #e9ecef;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:all 0.3s;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-  <span id="darkModeIcon">&#9790;</span> Dark Mode
+<button id="darkModeToggle" type="button" style="position:fixed;top:20px;right:20px;z-index:1000;padding:12px 20px;background:rgba(255,255,255,0.9);color:#2d3436;border:1px solid #e9ecef;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:all 0.3s;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+  <span id="darkModeIcon">&#9790;</span><span id="darkModeLabel">Dark Mode</span>
 </button>
 
 <!-- MAIN -->
@@ -612,7 +615,7 @@
     </ul>
     <div class="course">
       <h4>Essential Programming Fundamentals — Level One</h4>
-      <a href="https://www.youtube.com/playlist?list=PL3X--QIIK-OHgMV2yBz3GLfM5d_5BxOSj" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/playlist?list=PL3X--QIIK-OHgMV2yBz3GLfM5d_5BxOSj" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">37 videos · ~4h 12m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
     <div class="study-method">
@@ -690,8 +693,8 @@
 
     <div class="course">
       <h4>Elzero Web School — HTML + CSS</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank">HTML Playlist</a>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank">CSS Playlist</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank" rel="noopener noreferrer">HTML Playlist</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank" rel="noopener noreferrer">CSS Playlist</a>
       <div class="meta">Total: ~15h 40m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
 
@@ -792,12 +795,12 @@
 
     <div class="course">
       <h4>Elzero Web School — JavaScript</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">188 videos · ~19h 23m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
     <div class="course">
       <h4>Elzero Web School — ES6+ (Supplement)</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">52 videos · ~6h 44m · Arabic &nbsp; <span class="rating">5/5</span></div>
     </div>
 
@@ -835,7 +838,7 @@
     </ul>
     <div class="course">
       <h4>Git &amp; GitHub Course — Arabic</h4>
-      <a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
   </section>
@@ -858,7 +861,7 @@
     </ul>
     <div class="course">
       <h4>Elzero Web School — TypeScript</h4>
-      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">38 videos · ~3h 21m · Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
   </section>
@@ -882,12 +885,12 @@
     </ul>
     <div class="course">
       <h4>ITI — React Course (Arabic)</h4>
-      <a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">Arabic &nbsp; <span class="rating">4/5</span></div>
     </div>
     <div class="course">
       <h4>SuperSimpleDev — React 19 Full Course (English)</h4>
-      <a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank">Watch on YouTube</a>
+      <a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       <div class="meta">~11h 32m · React 19 · English &nbsp; <span class="rating">5/5</span></div>
     </div>
   </section>
@@ -976,25 +979,25 @@
     </div>
     <table>
       <tr><th>Phase</th><th>Course</th><th>Language</th><th>Link</th></tr>
-      <tr><td>HTML</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank">YouTube</a></td></tr>
-      <tr><td>CSS</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank">YouTube</a></td></tr>
-      <tr><td>JavaScript</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank">YouTube</a></td></tr>
-      <tr><td>ES6+</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank">YouTube</a></td></tr>
-      <tr><td>Git/GitHub</td><td>Git &amp; GitHub Course</td><td>Arabic</td><td><a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank">YouTube</a></td></tr>
-      <tr><td>TypeScript</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank">YouTube</a></td></tr>
-      <tr><td>React</td><td>ITI</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank">YouTube</a></td></tr>
-      <tr><td>React (alt)</td><td>SuperSimpleDev</td><td>English</td><td><a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank">YouTube</a></td></tr>
+      <tr><td>HTML</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>CSS</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzjsz06gkzlSrlev53MGIKe" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>JavaScript</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>ES6+</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAz7_BgzvNcOaE-m_SnE4jiT" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>Git/GitHub</td><td>Git &amp; GitHub Course</td><td>Arabic</td><td><a href="https://www.youtube.com/watch?v=Q6G-J54vgKc" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>TypeScript</td><td>Elzero Web School</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAy532K9M_fjiAmrJ0gkCyLJ" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>React</td><td>ITI</td><td>Arabic</td><td><a href="https://www.youtube.com/playlist?list=PLNFDrRZdysFyKuETeKNLYu5ATuYf6oEPb" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
+      <tr><td>React (alt)</td><td>SuperSimpleDev</td><td>English</td><td><a href="https://www.youtube.com/watch?v=TtPXvEcE11E&t=1s" target="_blank" rel="noopener noreferrer">YouTube</a></td></tr>
     </table>
 
     <h3 style="margin-top:28px;">Official Documentation</h3>
     <table>
       <tr><th>Tech</th><th>Link</th></tr>
-      <tr><td>HTML/CSS/JS</td><td><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></td></tr>
-      <tr><td>JavaScript</td><td><a href="https://javascript.info/" target="_blank">JavaScript.info</a></td></tr>
-      <tr><td>React</td><td><a href="https://react.dev/" target="_blank">react.dev</a></td></tr>
-      <tr><td>TypeScript</td><td><a href="https://www.typescriptlang.org/docs/handbook/" target="_blank">TypeScript Handbook</a></td></tr>
-      <tr><td>Git</td><td><a href="https://git-scm.com/doc" target="_blank">git-scm.com/doc</a></td></tr>
-      <tr><td>GitHub</td><td><a href="https://docs.github.com/" target="_blank">docs.github.com</a></td></tr>
+      <tr><td>HTML/CSS/JS</td><td><a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></td></tr>
+      <tr><td>JavaScript</td><td><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer">JavaScript.info</a></td></tr>
+      <tr><td>React</td><td><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">react.dev</a></td></tr>
+      <tr><td>TypeScript</td><td><a href="https://www.typescriptlang.org/docs/handbook/" target="_blank" rel="noopener noreferrer">TypeScript Handbook</a></td></tr>
+      <tr><td>Git</td><td><a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">git-scm.com/doc</a></td></tr>
+      <tr><td>GitHub</td><td><a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer">docs.github.com</a></td></tr>
     </table>
   </section>
 
@@ -1042,45 +1045,93 @@
 
 <script>
   // ============================================
-  // PASSWORD — Change this string to update it
+  // PASSWORD — kept as-is per request.
+  // NOTE: client-side gate is a casual deterrent only,
+  // not real access control (content is in page source).
   // ============================================
   const PASSWORD = "Frontend@2026";
 
+  let failedAttempts = 0;
+  let lockoutUntil = 0;
+  const MAX_ATTEMPTS = 5;
+  const LOCKOUT_MS = 30000;
+
   function checkPassword() {
-    const input = document.getElementById('password-input').value;
+    const inputEl = document.getElementById('password-input');
     const error = document.getElementById('login-error');
+    const btn = document.getElementById('unlockBtn');
+    const now = Date.now();
+
+    if (now < lockoutUntil) {
+      const waitSec = Math.ceil((lockoutUntil - now) / 1000);
+      error.textContent = 'Too many attempts. Try again in ' + waitSec + 's.';
+      error.style.display = 'block';
+      return;
+    }
+
+    const input = inputEl.value.trim();
 
     if (input === PASSWORD) {
+      failedAttempts = 0;
+      lockoutUntil = 0;
+      error.style.display = 'none';
       document.getElementById('login-screen').classList.add('hidden');
       document.getElementById('main-content').style.display = 'block';
     } else {
-      error.style.display = 'block';
-      document.getElementById('password-input').value = '';
-      document.getElementById('password-input').focus();
+      failedAttempts += 1;
+      inputEl.value = '';
+      inputEl.focus();
+      if (failedAttempts >= MAX_ATTEMPTS) {
+        lockoutUntil = Date.now() + LOCKOUT_MS;
+        btn.disabled = true;
+        error.textContent = 'Too many attempts. Try again in 30s.';
+        error.style.display = 'block';
+        setTimeout(function() {
+          btn.disabled = false;
+          failedAttempts = 0;
+          error.style.display = 'none';
+        }, LOCKOUT_MS);
+      } else {
+        error.textContent = 'Incorrect password. ' + (MAX_ATTEMPTS - failedAttempts) + ' attempts remaining.';
+        error.style.display = 'block';
+      }
     }
   }
 
+  document.getElementById('unlockBtn').addEventListener('click', checkPassword);
   document.getElementById('password-input').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') checkPassword();
   });
+
+  // Safe storage helpers (private-mode / blocked cookies can throw SecurityError)
+  function safeStorageGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function safeStorageSet(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) {}
+  }
 
   // Dark Mode Toggle
   function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDark);
+    safeStorageSet('darkMode', isDark);
     updateDarkModeButton(isDark);
   }
 
   function updateDarkModeButton(isDark) {
     const btn = document.getElementById('darkModeToggle');
+    const icon = document.getElementById('darkModeIcon');
+    const label = document.getElementById('darkModeLabel');
     if (isDark) {
-      btn.innerHTML = '<span id="darkModeIcon">&#9788;</span> Light Mode';
+      icon.textContent = '☀';
+      label.textContent = 'Light Mode';
       btn.style.background = 'rgba(30,30,50,0.9)';
       btn.style.color = '#e0e0e0';
       btn.style.borderColor = '#2d2d44';
     } else {
-      btn.innerHTML = '<span id="darkModeIcon">&#9790;</span> Dark Mode';
+      icon.textContent = '☾';
+      label.textContent = 'Dark Mode';
       btn.style.background = 'rgba(255,255,255,0.9)';
       btn.style.color = '#2d3436';
       btn.style.borderColor = '#e9ecef';
@@ -1088,15 +1139,16 @@
   }
 
   // Check saved preference
-  if (localStorage.getItem('darkMode') === 'true') {
+  if (safeStorageGet('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
     updateDarkModeButton(true);
   } else {
     updateDarkModeButton(false);
   }
 
-  // Add hover effect
+  // Add hover effect + wire toggle
   const darkModeBtn = document.getElementById('darkModeToggle');
+  darkModeBtn.addEventListener('click', toggleDarkMode);
   darkModeBtn.addEventListener('mouseenter', function() {
     this.style.transform = 'translateY(-2px)';
     this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
