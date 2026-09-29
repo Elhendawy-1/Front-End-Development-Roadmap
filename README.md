@@ -18,6 +18,6 @@
 
 ## Live Demo
 
-https://elhendawy-1.github.io/Front-End-Development-Roadmap/
+https://elhendawy-1.github.io/Front-End-Roadmap/
 
 افتح الرابط لعرض خارطة الطريق كاملة.
